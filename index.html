@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+    <style>
+        *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+::-webkit-scrollbar{
+    height:5px;
+    width:5px;
+    background-color: whitesmoke;
+
+}
+::-webkit-scrollbar-thumb{
+    width:5px;
+    height:30px;
+    background-color:rgb(1, 163, 163);
+}
+.body{
+    width:100%;
+    height:100vh;
+    border:3px groove rgb(255, 255, 255);
+    background-color:teal;
+}
+.heading{
+    color: rgb(255, 255, 255);
+    width:100%;
+    font-size:40px;
+    text-align: center;
+    font-family: sans-serif;
+    text-shadow: 2px 2px rgb(43, 43, 43);
+}
+.container{
+    width:100%;
+    height:90%;
+    border-top:5px solid white;
+    padding:5px 0px;
+    margin:auto auto;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    padding:1px;
+    
+}
+.leftContainer{
+    width:60%;
+    height:100%;
+}
+.leftContainer h1{
+    width:100%;
+    text-align: center;
+    color:white;
+    text-shadow:2px 2px black;
+}
+form{
+    width:70%;
+    background-color: white;
+    border-radius:30px;
+    height:500px;
+    display: block;
+    margin: auto;
+    margin-top:10px;
+    border:3px inset gray;
+    padding:20px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    gap:20px;
+    flex-direction: column;
+}
+form input{
+    width:80%;
+    height:40px;
+    padding:2px 20px;
+    font-size:19px;
+    font-family: sans-serif;
+}
+form button{
+    padding:10px 30px;
+    border:3px inset grey;
+    font-size:20px;
+}
+.rightContainer{
+    width:40%;
+    height:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow-y: scroll;
+    padding:10px;
+    padding-top:70px;
+    background-color: #388080;
+    border-bottom:3px solid white;
+    border-left: 3px solid white;
+    
+}
+.scroll{
+    width:100%;
+    min-height:100vh;
+    
+    
+}
+.scroll.rightContainerUpper{
+    margin-top:50px;
+}
+.box{
+    width:100%;
+    min-height:60%;
+    margin-top:10px;
+    padding:5px;
+}
+.box h1{
+    width:100%;
+    text-align: center;
+    text-shadow: 2px 2px rgb(41, 41, 41);
+    font-family: sans-serif;
+    color:white;
+}
+.code{
+    width:100%;
+    min-height:380px;
+    overflow-y: scroll;
+    overflow-x: scroll;
+    background-color: rgb(41, 41, 41);
+    border:2px inset white;
+    color:white;
+    padding:10px;
+    font-family: sans-serif;
+    font-size:16px;
+}
+    </style>
+</head>
+<body>
+    <div class="body" id="bodyy">
+    <h1 class="heading">Webitya</h1>  
+    <div class="container">
+         <div class="leftContainer">
+            <h1>Registration Form</h1>
+              <form>
+                <input type="text" placeholder="Enter Your Name">
+                 <input type="text" placeholder="Enter Your Mobile no.">
+                 <input type="email" placeholder="Enter Your Email">
+                 <input type="text" placeholder="Enter Your State">
+                 <input type="text" placeholder="Enter Your City">
+                 <button type="submit">Submit</button>
+              </form>
+         </div>
+         <div class="rightContainer">
+          <div class="scroll">
+            <div class="rightContainerUpper box">
+                <h1>HTML</h1>
+                <textarea class="code html">
+                    
+                </textarea>
+
+            </div>
+            <div class="rightContainerCenter box">
+                <h1>JavaScript</h1>
+                <textarea class="code javascript">
+                    
+                </textarea>
+            </div>
+            <div class="rightContainerBottom box">
+                <h1>CSS</h1>
+                <textarea class="code css">
+
+                </textarea>
+            </div>
+          </div>
+         </div>
+    </div>  
+    </div>
+    <script class="script">
+                const form=document.querySelector("form");
+                let allInput=document.querySelectorAll("input");
+                let input1=allInput[0];
+                let input2=allInput[1];
+                let input3=allInput[2];
+                let input4=allInput[3];
+                let input5=allInput[4];
+                input1.onblur=()=>{
+                    name();
+                }
+                input2.onblur=()=>{
+                    mobile()
+                }
+                input3.onblur=()=>{
+                    email();
+                }
+                input4.onblur=()=>{
+                    state();
+                }
+                input5.onblur=()=>{
+                    city();
+                }
+                const name=()=>{
+                    input1.value==""?input1.style.borderColor="red":input1.style.borderColor="green";
+                }
+                const mobile=()=>{
+                    input2.value==""?input2.style.borderColor="red":input2.style.borderColor="green";
+                }
+                const email=()=>{
+                    input3.value==""?input3.style.borderColor="red":input3.style.borderColor="green";
+                }
+                const state=()=>{
+                    input4.value==""?input4.style.borderColor="red":input4.style.borderColor="green";
+                }
+                const city=()=>{
+                    input5.value==""?input5.style.borderColor="red":input5.style.borderColor="green";
+                }
+                form.onsubmit=(e)=>{
+                    name();
+                    mobile();
+                    email();
+                    state();
+                    city();
+                    e.preventDefault()
+                }
+    </script>
+    <script src="./index.js"></script>
+</body>
+</html>
